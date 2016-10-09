@@ -20,9 +20,7 @@ const GetCityContainer = React.createClass({
         );
     },
     handleSubmitLocation(){
-        const that = this;
-        //jsonGetCurrentWeather(that.state.location).then(that.getWeatherSuccess).catch(that.getWeatherError);
-        jsonGetNDaysForecast(that.state.location, forecastDays).then(that.getWeatherSuccess).catch(that.getWeatherError);
+        this.context.router.push(`/forecast/${this.state.location}`);
     },
     handleUpdateLocation(e){
         this.setState({
