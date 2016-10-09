@@ -1,20 +1,20 @@
 import React from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import {Link} from 'react-router';
+import styles from '../styles/index';
+const {fullPage, mainHeader} = styles;
+import GetCityContainer from '../containers/GetCityContainer';
 //require('../main.css');
 
-const Main = React.createClass({
-    render(){
-        return (
-            <div className='main-container'>
-                <ReactCSSTransitionGroup
-                    transitionName="appear"
-                    transitionEnterTimeout={500}
-                    transitionLeaveTimeout={500}>
-                    {React.cloneElement(this.props.children, {key: this.props.location.pathname})}
-                </ReactCSSTransitionGroup>
+const Main = (props)=> {
+    return (
+        <div className='main-container' style={fullPage}>
+            <div className="navbar" style={mainHeader}>
+                <Link to="/">kanWeather</Link>
+                <GetCityContainer/>
             </div>
-        );
-    }
-});
+            {props.children}
+        </div>
+    );
+};
 
 export default Main;

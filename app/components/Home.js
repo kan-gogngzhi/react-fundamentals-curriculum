@@ -1,20 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router';
-//import styles from '../styles/index';
-//const {transparentBg} = styles;
+import styles from '../styles/index';
+const {homeBg} = styles;
+import GetCityContainer from '../containers/GetCityContainer';
 
-const Home = React.createClass({
-    render(){
-        return (
-            <div className="jumbotron col-sm-12 text-center">
-                <h1>Github Battle</h1>
-                <p className='lead'>What even is a jQuery?</p>
-                <Link to='/playerOne'>
-                    <button type='button' className='btn btn-lg btn-success'>Get Started</button>
-                </Link>
-            </div>
-        )
-    }
-});
+const Home = ()=> {
+    return (
+        <div className="col-sm-12 text-center" style={homeBg}>
+            <h1>Enter a city and state</h1>
+            <GetCityContainer/>
+        </div>
+    )
+};
 
 export default Home;
