@@ -1,7 +1,9 @@
 import React from 'react';
 import jsonGetCurrentWeather from '../json/getCurrentWeather';
+import jsonGetNDaysForecast from '../json/getNDaysForecast';
 import GetCity from '../components/GetCity';
 const {PropTypes} = React;
+const forecastDays = 5;
 
 const GetCityContainer = React.createClass({
     contextTypes: {
@@ -19,7 +21,8 @@ const GetCityContainer = React.createClass({
     },
     handleSubmitLocation(){
         const that = this;
-        jsonGetCurrentWeather(that.state.location).then(that.getWeatherSuccess).catch(that.getWeatherError);
+        //jsonGetCurrentWeather(that.state.location).then(that.getWeatherSuccess).catch(that.getWeatherError);
+        jsonGetNDaysForecast(that.state.location, forecastDays).then(that.getWeatherSuccess).catch(that.getWeatherError);
     },
     handleUpdateLocation(e){
         this.setState({

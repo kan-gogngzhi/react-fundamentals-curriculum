@@ -9,5 +9,8 @@ export default {
 
     getCurrentCityWeatherAPI(city){
         return `${api.apiEndPoint}${api.apiCurrentWeather}${api.apiCityQuery}${city}${api.apiTypeAndIDParam}`;
+    },
+    getNDaysForecastAPI(city){
+        return `${api.apiEndPoint}${api.apiFiveDayForecast}${api.apiCityQuery}${city}${api.apiTypeAndIDParam}`;
     }
 }
