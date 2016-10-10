@@ -31,10 +31,12 @@ const ForecastContainer = React.createClass({
         jsonGetNDaysForecast(nextProps.routeParams.city, forecastDays).then(that.getWeatherSuccess).catch(that.getWeatherError);
     },
     handleSelectDay(dayData){
-        console.log('clicked: ', dayData);
-        //const that = this;
-        //jsonGetCurrentWeather(that.state.location).then(that.getWeatherSuccess).catch(that.getWeatherError);
-        //jsonGetNDaysForecast(that.state.location, forecastDays).then(that.getWeatherSuccess).catch(that.getWeatherError);
+        this.context.router.push({
+            pathname: `/details/${this.props.routeParams.city}`,
+            state: {
+                data: dayData
+            }
+        });
     },
     getWeatherSuccess(data){
         this.setState({
